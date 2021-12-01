@@ -5,6 +5,7 @@ import os
 #Importação Tabelas
 from config import Package1
 from config import Com1
+from config import Package1_5
 from config import Com1_5
 from config import Package2
 from config import Package2Fronteira
@@ -242,6 +243,12 @@ while sair == "N":
         if selectTable in Com1:
             ComItem = Com1[selectTable]
             cod.append(ComItem)
+    #Adicionando o código selecionado -- Package 1,5 
+    elif selectType == 'Package 1.5':
+        selectTable = input("Digite a origem da tabela: ")
+        if selectTable in Package1_5:
+            Package1_5Item = Package1_5[selectTable]
+            cod.append(Package1_5Item)
     #Adicionando o código selecionado -- .COM 1,5
     elif selectType == '.COM 1.5':
         selectTable = input("Digite a origem da tabela: ")
@@ -276,8 +283,6 @@ while sair == "N":
     main()
     clear_console()
     print("Tabela cadastrada com sucesso!")
-    time.sleep(1)
-    clear_console()
     print("------------------------------------------------")
     tableTaxa = input("Deseja adicionar taxa?(S/N) ")
     print("------------------------------------------------")
@@ -286,8 +291,6 @@ while sair == "N":
         print("Taxa cadastrada com sucesso!!")
     else:
         print('\nTaxa não adicionada.')
-    time.sleep(1)
-    clear_console()
     print("------------------------------------------------")
     sair = input("Deseja sair do programa?(S/N) ")
     print("------------------------------------------------")
