@@ -38,4 +38,9 @@
 # selectTable = input("Digite a Origem: ")
 # taxa = input("Digite a taxa: ")
 # scriptEmail()
-
+numIdentificador = 0
+codtest = []
+qnt = int(input("Quantidade cadastros: "))
+while numIdentificador < qnt:
+    codigos = input("Digite o código: ")
+    codtest.append(codigos)
