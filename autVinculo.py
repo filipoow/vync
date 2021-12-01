@@ -218,83 +218,107 @@ def scriptEmail(selectType, selectTable, taxa):
     print("\nPor gentileza solicitar testes.")
     print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
 
-sair = "N"
 
-while sair == "N":
-    #Se for colocar os códigos manualmente, adicionar antes de compilar..
-    cod = []
+print("------------------------------------------------")
+print("             Bem-vindo(a) ao AutoVync           ")
+print("------------------------------------------------")
+print("1 - Cadastro")
+print("2 - Taxa")
+opcao = int(input("Digite a operação(Ex: 1, 2): "))
+clear_console()
+if opcao == 1:
+    #Requisitos para o loop...
+    sair = "N"
+    while sair == "N":
+        #Se for colocar os códigos manualmente, adicionar antes de compilar..
+        cod = []
 
-    print("------------------------------------------------")
-    print("Preencher informações abaixo para o AutoCadastro")
-    print("------------------------------------------------")
-    # nomeVendedor = input("Informar nome do vendedor subordinado: ") Ainda testando....
-    cnpj = input("Informe o cnpj: ")
-    #Selecionando o tipo da tabela
-    selectType = input("Digite o tipo da tabela: ")
-    #Adicionando o código selecionado -- Package 1
-    if selectType == 'Package 1':
-        selectTable = input("Digite a origem da tabela: ")
-        if selectTable in Package1:
-            PackageItem = Package1[selectTable]
-            cod.append(PackageItem)
-    #Adicionando o código selecionado -- .COM 1 
-    elif selectType == '.COM 1':
-        selectTable = input("Digite a origem da tabela: ")
-        if selectTable in Com1:
-            ComItem = Com1[selectTable]
-            cod.append(ComItem)
-    #Adicionando o código selecionado -- Package 1,5 
-    elif selectType == 'Package 1.5':
-        selectTable = input("Digite a origem da tabela: ")
-        if selectTable in Package1_5:
-            Package1_5Item = Package1_5[selectTable]
-            cod.append(Package1_5Item)
-    #Adicionando o código selecionado -- .COM 1,5
-    elif selectType == '.COM 1.5':
-        selectTable = input("Digite a origem da tabela: ")
-        if selectTable in Com1_5:
-            Com1_5Item = Com1_5[selectTable]
-            cod.append(Com1_5Item)
-    #Adicionando o código selecionado -- Package 2 
-    elif selectType == 'Package 2':
-        selectTable = input("Digite a origem da tabela: ")
-        if selectTable in Package2:
-            Package2Item = Package2[selectTable]
-            cod.append(Package2Item)
-    #Adicionando o código selecionado -- Package 2 Fronteira
-    elif selectType == 'Package 2 Fronteira':
-        selectTable = input("Digite a origem da tabela: ")
-        if selectTable in Package2Fronteira:
-            Package2FrontItem = Package2Fronteira[selectTable]
-            cod.append(Package2FrontItem)
-    #Adicionando o código selecionado -- .COM 2
-    elif selectType == '.COM 2':
-        selectTable = input("Digite a origem da tabela: ")
-        if selectTable in Com2:
-            Com2Item = Com2[selectTable]
-            cod.append(Com2Item)
-    #Adicionando o código selecionado -- .COM 2
-    elif selectType == 'Package 4':
-        selectTable = input("Digite a origem da tabela: ")
-        if selectTable in Package4:
-            Package4Item = Package4[selectTable]
-            cod.append(Package4Item)
+        print("------------------------------------------------")
+        print("Preencher informações abaixo para o AutoCadastro")
+        print("------------------------------------------------")
+        # nomeVendedor = input("Informar nome do vendedor subordinado: ") Ainda testando....
+        cnpj = input("Informe o cnpj: ")
+        #Selecionando o tipo da tabela
+        selectType = input("Digite o tipo da tabela: ")
+        #Adicionando o código selecionado -- Package 1
+        if selectType == 'Package 1':
+            selectTable = input("Digite a origem da tabela: ")
+            if selectTable in Package1:
+                PackageItem = Package1[selectTable]
+                cod.append(PackageItem)
+        #Adicionando o código selecionado -- .COM 1 
+        elif selectType == '.COM 1':
+            selectTable = input("Digite a origem da tabela: ")
+            if selectTable in Com1:
+                ComItem = Com1[selectTable]
+                cod.append(ComItem)
+        #Adicionando o código selecionado -- Package 1,5 
+        elif selectType == 'Package 1.5':
+            selectTable = input("Digite a origem da tabela: ")
+            if selectTable in Package1_5:
+                Package1_5Item = Package1_5[selectTable]
+                cod.append(Package1_5Item)
+        #Adicionando o código selecionado -- .COM 1,5
+        elif selectType == '.COM 1.5':
+            selectTable = input("Digite a origem da tabela: ")
+            if selectTable in Com1_5:
+                Com1_5Item = Com1_5[selectTable]
+                cod.append(Com1_5Item)
+        #Adicionando o código selecionado -- Package 2 
+        elif selectType == 'Package 2':
+            selectTable = input("Digite a origem da tabela: ")
+            if selectTable in Package2:
+                Package2Item = Package2[selectTable]
+                cod.append(Package2Item)
+        #Adicionando o código selecionado -- Package 2 Fronteira
+        elif selectType == 'Package 2 Fronteira':
+            selectTable = input("Digite a origem da tabela: ")
+            if selectTable in Package2Fronteira:
+                Package2FrontItem = Package2Fronteira[selectTable]
+                cod.append(Package2FrontItem)
+        #Adicionando o código selecionado -- .COM 2
+        elif selectType == '.COM 2':
+            selectTable = input("Digite a origem da tabela: ")
+            if selectTable in Com2:
+                Com2Item = Com2[selectTable]
+                cod.append(Com2Item)
+        #Adicionando o código selecionado -- .COM 2
+        elif selectType == 'Package 4':
+            selectTable = input("Digite a origem da tabela: ")
+            if selectTable in Package4:
+                Package4Item = Package4[selectTable]
+                cod.append(Package4Item)
 
-    main()
-    clear_console()
-    print("Tabela cadastrada com sucesso!")
-    print("------------------------------------------------")
-    tableTaxa = input("Deseja adicionar taxa?(S/N) ")
-    print("------------------------------------------------")
-    if tableTaxa == 'S':
+        main()
+        clear_console()
+        print("Tabela cadastrada com sucesso!")
+        print("------------------------------------------------")
+        tableTaxa = input("Deseja adicionar taxa?(S/N) ")
+        print("------------------------------------------------")
+        if tableTaxa == 'S':
+            addTaxa()
+            clear_console()
+            print("Taxa cadastrada com sucesso!!")
+        else:
+            clear_console()
+            print('\nTaxa não adicionada.')
+        print("------------------------------------------------")
+        sair = input("Deseja sair do programa?(S/N) ")
+        print("------------------------------------------------")
+        clear_console()
+if opcao == 2:
+    sair = "N"
+    while sair == "N":
+        print("----------------------------------------------------")
+        print("Preencher informações abaixo para o cadastro de taxa")
+        print("----------------------------------------------------")
+        cnpj = input("Informe o cnpj: ")
         addTaxa()
         print("Taxa cadastrada com sucesso!!")
-    else:
-        print('\nTaxa não adicionada.')
-    print("------------------------------------------------")
-    sair = input("Deseja sair do programa?(S/N) ")
-    print("------------------------------------------------")
-    clear_console()
+        print("------------------------------------------------")
+        sair = input("Deseja sair do programa?(S/N) ")
+        print("------------------------------------------------")
+        clear_console()
 
 # print(selectType)
 # print(selectTable)
