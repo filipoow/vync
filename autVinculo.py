@@ -19,10 +19,10 @@ def clear_console():
     os.system('cls')
 
 def addTaxa():
-    #Entrada de dados...
-    print("Tipo de Taxa: PACKAGE, .COM, PICKUP, RODOVIARIO, ECONOMICO, \nEXPRESSO, CORPORATE, DOC, CARGO, EMERGENCIAL")
-    tipoTaxa = input("Digite o tipo da taxa: ")
-    taxa = input("Digite a taxa: ")
+    # #Entrada de dados...
+    # print("Tipo de Taxa: PACKAGE, .COM, PICKUP, RODOVIARIO, ECONOMICO, \nEXPRESSO, CORPORATE, DOC, CARGO, EMERGENCIAL")
+    # tipoTaxa = input("Digite o tipo da taxa: ")
+    # taxa = input("Digite a taxa: ")
 
     #Abrindo o Cadastro Central
     pyautogui.click(x=217, y=748)
@@ -206,17 +206,28 @@ def main():
     pyautogui.press('tab')
     pyautogui.press('enter')
 
-def scriptEmail(selectType, selectTable, taxa):
+def scriptEmail():
     #Entrada de dados..
-    print("\n-------------------------------------")
-    print("            Script Email             ")
-    print("-------------------------------------")
-    # print("{}"", boa tarde!".format(nomeVendedor))
-    print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
-    print("{} + {}".format(selectType,taxa))
-    print("Origem {}".format(selectTable))
-    print("\nPor gentileza solicitar testes.")
-    print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
+    if taxa > 0:
+        print("\n-------------------------------------")
+        print("            Script Email             ")
+        print("-------------------------------------")
+        print("{}"", boa tarde!".format(nomeVendedor))
+        print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
+        print("{} + {}".format(selectType,taxa))
+        print("Origem {}".format(selectTable))
+        print("\nPor gentileza solicitar testes.")
+        print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
+    else:
+        print("\n-------------------------------------")
+        print("            Script Email             ")
+        print("-------------------------------------")
+        print("{}"", boa tarde!".format(nomeVendedor))
+        print("\nConforme solicitado foi cadastrada no CNPJ {} a tabela:".format(cnpj))
+        print("{}".format(selectType))
+        print("Origem {}".format(selectTable))
+        print("\nPor gentileza solicitar testes.")
+        
 
 
 print("------------------------------------------------")
@@ -236,7 +247,7 @@ if opcao == 1:
         print("------------------------------------------------")
         print("Preencher informações abaixo para o AutoCadastro")
         print("------------------------------------------------")
-        # nomeVendedor = input("Informar nome do vendedor subordinado: ") Ainda testando....
+        nomeVendedor = input("Informar nome do vendedor subordinado: ")
         cnpj = input("Informe o cnpj: ")
         #Selecionando o tipo da tabela
         selectType = input("Digite o tipo da tabela: ")
@@ -296,12 +307,19 @@ if opcao == 1:
         tableTaxa = input("Deseja adicionar taxa?(S/N) ")
         print("------------------------------------------------")
         if tableTaxa == 'S':
+            #Entrada de dados...
+            print("Tipo de Taxa: PACKAGE, .COM, PICKUP, RODOVIARIO, ECONOMICO, \nEXPRESSO, CORPORATE, DOC, CARGO, EMERGENCIAL")
+            tipoTaxa = input("Digite o tipo da taxa: ")
+            taxa = input("Digite a taxa(Ex: 0.75, 1.95, ...): ")
             addTaxa()
+            taxa = float(taxa)
             clear_console()
             print("Taxa cadastrada com sucesso!!")
         else:
             clear_console()
+            taxa = 0
             print('\nTaxa não adicionada.')
+        scriptEmail()
         print("------------------------------------------------")
         sair = input("Deseja sair do programa?(S/N) ")
         print("------------------------------------------------")
@@ -313,7 +331,12 @@ if opcao == 2:
         print("Preencher informações abaixo para o cadastro de taxa")
         print("----------------------------------------------------")
         cnpj = input("Informe o cnpj: ")
+        #Entrada de dados...
+        print("Tipo de Taxa: PACKAGE, .COM, PICKUP, RODOVIARIO, ECONOMICO, \nEXPRESSO, CORPORATE, DOC, CARGO, EMERGENCIAL")
+        tipoTaxa = input("Digite o tipo da taxa: ")
+        taxa = input("Digite a taxa(Ex: 0.75, 1.95, ...): ")
         addTaxa()
+        taxa = float(taxa)
         print("Taxa cadastrada com sucesso!!")
         print("------------------------------------------------")
         sair = input("Deseja sair do programa?(S/N) ")

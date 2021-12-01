@@ -1,7 +1,7 @@
 #Importação de tabela por pandas
-import pandas as pd
-df = pd.read_excel('codigo_ref.xlsx')
-print(df)
+# import pandas as pd
+# df = pd.read_excel('codigo_ref.xlsx')
+# print(df)
 
 #TESTE PARA CADASTRO DE CÓDIGOS..............................................
 
@@ -21,5 +21,21 @@ print(df)
 #         cod.append(PackageItem)
 # print(cod)
 
+# def scriptEmail():
+#     #Entrada de dados..
+#     print("\n-------------------------------------")
+#     print("            Script Email             ")
+#     print("-------------------------------------")
+#     # print("{}"", boa tarde!".format(nomeVendedor))
+#     print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
+#     print("{} + {}".format(selectType,taxa))
+#     print("Origem {}".format(selectTable))
+#     print("\nPor gentileza solicitar testes.")
+#     print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
 
+# cnpj = input("Digite o cnpj: ")
+# selectType = input("Digite o tipo da tabela: ")
+# selectTable = input("Digite a Origem: ")
+# taxa = input("Digite a taxa: ")
+# scriptEmail()
 
