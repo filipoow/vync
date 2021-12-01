@@ -1,5 +1,6 @@
 import pyautogui
 import time
+import os
 
 #Importação Tabelas
 from config import Package1
@@ -12,6 +13,9 @@ from config import Package4
 
 #Condições
 numIdentificador = 0
+
+def clear_console():
+    os.system('cls')
 
 def addTaxa():
     #Entrada de dados...
@@ -279,7 +283,10 @@ while sair == "N":
         print("Taxa cadastrada com sucesso!!")
     else:
         print('\nTaxa não adicionada.')
+    print("------------------------------------------------")
     sair = input("Deseja sair do programa?(S/N) ")
+    print("------------------------------------------------")
+    clear_console()
 
 # print(selectType)
 # print(selectTable)
