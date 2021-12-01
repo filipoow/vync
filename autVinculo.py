@@ -274,7 +274,10 @@ while sair == "N":
             cod.append(Package4Item)
 
     main()
+    clear_console()
     print("Tabela cadastrada com sucesso!")
+    time.sleep(1)
+    clear_console()
     print("------------------------------------------------")
     tableTaxa = input("Deseja adicionar taxa?(S/N) ")
     print("------------------------------------------------")
@@ -283,6 +286,8 @@ while sair == "N":
         print("Taxa cadastrada com sucesso!!")
     else:
         print('\nTaxa não adicionada.')
+    time.sleep(1)
+    clear_console()
     print("------------------------------------------------")
     sair = input("Deseja sair do programa?(S/N) ")
     print("------------------------------------------------")
