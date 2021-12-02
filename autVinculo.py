@@ -342,10 +342,3 @@ if opcao == 2:
         sair = input("Deseja sair do programa?(S/N) ")
         print("------------------------------------------------")
         clear_console()
-
-# print(selectType)
-# print(selectTable)
-# print(nomeVendedor)
-# scriptEmail()
-
-
