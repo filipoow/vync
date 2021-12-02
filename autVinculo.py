@@ -11,6 +11,7 @@ from config import Package2
 from config import Package2Fronteira
 from config import Com2
 from config import Package4
+from config import all_package4
 
 #Condições
 numIdentificador = 0
@@ -304,6 +305,9 @@ if opcao == 1:
                 if selectTable in Package4:
                     Package4Item = Package4[selectTable]
                     cod.append(Package4Item)
+                elif selectTable == 'Multi':
+                    for p in range(len(all_package4)):
+                        cod.append(p)
 
         main()
         clear_console()
