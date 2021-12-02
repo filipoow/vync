@@ -209,7 +209,9 @@ def main():
 
 def scriptEmail():
     #Entrada de dados..
-    if len(nomeTabela) and taxa > 0:
+
+    #Email de mais de uma tabela c/ taxa...
+    if len(nomeTabela) > 1 and taxa > 0:
         print("\n-------------------------------------")
         print("            Script Email             ")
         print("-------------------------------------")
@@ -220,7 +222,29 @@ def scriptEmail():
         print("Origem {}".format(selectTable))
         print("\nPor gentileza solicitar testes.")
         print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
-    else:
+    #Email de uma tabela com taxa
+    elif len(nomeTabela) == 1 and taxa > 0:
+        print("\n-------------------------------------")
+        print("            Script Email             ")
+        print("-------------------------------------")
+        print("{}"", boa tarde!".format(nomeVendedor))
+        print("\nConforme solicitado foi cadastrada no CNPJ {} a tabela:".format(cnpj))
+        print("{} + {}".format(selectType,taxa))
+        print("Origem {}".format(selectTable))
+        print("\nPor gentileza solicitar testes.")
+        print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
+    #Email mais de uma tabela sem taxa.
+    elif len(nomeTabela) > 1 and taxa == 0:
+        print("\n-------------------------------------")
+        print("            Script Email             ")
+        print("-------------------------------------")
+        print("{}"", boa tarde!".format(nomeVendedor))
+        print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
+        for t in range(len(nomeTabela)):
+            print("{}".format(selectType[t]))
+        print("Origem {}".format(selectTable))
+        print("\nPor gentileza solicitar testes.")
+    elif len(nomeTabela) == 1 and taxa == 0:
         print("\n-------------------------------------")
         print("            Script Email             ")
         print("-------------------------------------")
@@ -229,11 +253,14 @@ def scriptEmail():
         print("{}".format(selectType))
         print("Origem {}".format(selectTable))
         print("\nPor gentileza solicitar testes.")
+    #Caso de erro
+    else:
+        print("Sem informação para compilar o email, por favor entrar em contato com o criador.")
         
 
 
 print("------------------------------------------------")
-print("             Bem-vindo(a) ao AutoVync           ")
+print("             Bem-vindo(a) ao Vync               ")
 print("------------------------------------------------")
 print("1 - Cadastro")
 print("2 - Taxa")
@@ -305,9 +332,9 @@ if opcao == 1:
                 if selectTable in Package4:
                     Package4Item = Package4[selectTable]
                     cod.append(Package4Item)
-                elif selectTable == 'Multi':
-                    for p in range(len(all_package4)):
-                        cod.append(p)
+                # elif selectTable == 'Multi':
+                #     for p in range(len(all_package4)):
+                #         cod.append(p)
 
         main()
         clear_console()
