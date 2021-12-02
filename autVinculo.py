@@ -249,56 +249,58 @@ if opcao == 1:
         print("------------------------------------------------")
         nomeVendedor = input("Informar nome do vendedor subordinado: ")
         cnpj = input("Informe o cnpj: ")
-        #Selecionando o tipo da tabela
-        selectType = input("Digite o tipo da tabela: ")
-        #Adicionando o código selecionado -- Package 1
-        if selectType == 'Package 1':
-            selectTable = input("Digite a origem da tabela: ")
-            if selectTable in Package1:
-                PackageItem = Package1[selectTable]
-                cod.append(PackageItem)
-        #Adicionando o código selecionado -- .COM 1 
-        elif selectType == '.COM 1':
-            selectTable = input("Digite a origem da tabela: ")
-            if selectTable in Com1:
-                ComItem = Com1[selectTable]
-                cod.append(ComItem)
-        #Adicionando o código selecionado -- Package 1,5 
-        elif selectType == 'Package 1.5':
-            selectTable = input("Digite a origem da tabela: ")
-            if selectTable in Package1_5:
-                Package1_5Item = Package1_5[selectTable]
-                cod.append(Package1_5Item)
-        #Adicionando o código selecionado -- .COM 1,5
-        elif selectType == '.COM 1.5':
-            selectTable = input("Digite a origem da tabela: ")
-            if selectTable in Com1_5:
-                Com1_5Item = Com1_5[selectTable]
-                cod.append(Com1_5Item)
-        #Adicionando o código selecionado -- Package 2 
-        elif selectType == 'Package 2':
-            selectTable = input("Digite a origem da tabela: ")
-            if selectTable in Package2:
-                Package2Item = Package2[selectTable]
-                cod.append(Package2Item)
-        #Adicionando o código selecionado -- Package 2 Fronteira
-        elif selectType == 'Package 2 Fronteira':
-            selectTable = input("Digite a origem da tabela: ")
-            if selectTable in Package2Fronteira:
-                Package2FrontItem = Package2Fronteira[selectTable]
-                cod.append(Package2FrontItem)
-        #Adicionando o código selecionado -- .COM 2
-        elif selectType == '.COM 2':
-            selectTable = input("Digite a origem da tabela: ")
-            if selectTable in Com2:
-                Com2Item = Com2[selectTable]
-                cod.append(Com2Item)
-        #Adicionando o código selecionado -- .COM 2
-        elif selectType == 'Package 4':
-            selectTable = input("Digite a origem da tabela: ")
-            if selectTable in Package4:
-                Package4Item = Package4[selectTable]
-                cod.append(Package4Item)
+        qtn = int(input("Quantidade de vínculos: "))
+        while len(cod) < qtn:
+            #Selecionando o tipo da tabela
+            selectType = input("Digite o tipo da tabela: ")
+            #Adicionando o código selecionado -- Package 1
+            if selectType == 'Package 1':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Package1:
+                    PackageItem = Package1[selectTable]
+                    cod.append(PackageItem)
+            #Adicionando o código selecionado -- .COM 1 
+            elif selectType == '.COM 1':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Com1:
+                    ComItem = Com1[selectTable]
+                    cod.append(ComItem)
+            #Adicionando o código selecionado -- Package 1,5 
+            elif selectType == 'Package 1.5':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Package1_5:
+                    Package1_5Item = Package1_5[selectTable]
+                    cod.append(Package1_5Item)
+            #Adicionando o código selecionado -- .COM 1,5
+            elif selectType == '.COM 1.5':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Com1_5:
+                    Com1_5Item = Com1_5[selectTable]
+                    cod.append(Com1_5Item)
+            #Adicionando o código selecionado -- Package 2 
+            elif selectType == 'Package 2':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Package2:
+                    Package2Item = Package2[selectTable]
+                    cod.append(Package2Item)
+            #Adicionando o código selecionado -- Package 2 Fronteira
+            elif selectType == 'Package 2 Fronteira':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Package2Fronteira:
+                    Package2FrontItem = Package2Fronteira[selectTable]
+                    cod.append(Package2FrontItem)
+            #Adicionando o código selecionado -- .COM 2
+            elif selectType == '.COM 2':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Com2:
+                    Com2Item = Com2[selectTable]
+                    cod.append(Com2Item)
+            #Adicionando o código selecionado -- .COM 2
+            elif selectType == 'Package 4':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Package4:
+                    Package4Item = Package4[selectTable]
+                    cod.append(Package4Item)
 
         main()
         clear_console()
