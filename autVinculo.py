@@ -208,13 +208,14 @@ def main():
 
 def scriptEmail():
     #Entrada de dados..
-    if taxa > 0:
+    if len(nomeTabela) and taxa > 0:
         print("\n-------------------------------------")
         print("            Script Email             ")
         print("-------------------------------------")
         print("{}"", boa tarde!".format(nomeVendedor))
         print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
-        print("{} + {}".format(selectType,taxa))
+        for t in range(len(nomeTabela)):
+            print("{} + {}".format(selectType[t],taxa))
         print("Origem {}".format(selectTable))
         print("\nPor gentileza solicitar testes.")
         print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
@@ -243,6 +244,7 @@ if opcao == 1:
     while sair == "N":
         #Se for colocar os códigos manualmente, adicionar antes de compilar..
         cod = []
+        nomeTabela = []
 
         print("------------------------------------------------")
         print("Preencher informações abaixo para o AutoCadastro")
@@ -253,6 +255,7 @@ if opcao == 1:
         while len(cod) < qtn:
             #Selecionando o tipo da tabela
             selectType = input("Digite o tipo da tabela: ")
+            nomeTabela.append(selectType)
             #Adicionando o código selecionado -- Package 1
             if selectType == 'Package 1':
                 selectTable = input("Digite a origem da tabela: ")
