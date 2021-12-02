@@ -48,25 +48,36 @@
 
 # print(a_list)
 
-itemsEmail = {}
+# itemsEmail = {}
 
-def requisitosEmail():
-    tipoTabela = input("Digite o tipo da tabela: ")
-    chave = "Tabela"
-    itemsEmail.setdefault(chave, [])
-    itemsEmail[chave].append(tipoTabela)
+# def requisitosEmail():
+#     tipoTabela = input("Digite o tipo da tabela: ")
+#     chave = "Tabela"
+#     itemsEmail.setdefault(chave, [])
+#     itemsEmail[chave].append(tipoTabela)
 
     
-    listadeItens = itemsEmail.values()
+#     listadeItens = itemsEmail.values()
 
-    listadeItens = list(listadeItens)
+#     listadeItens = list(listadeItens)
 
 
-    print(listadeItens)
+#     print(listadeItens)
     
-    #Pegando itens separados..
-    for i in listadeItens:
-        print(i)
-        i.split([''])
+#     #Pegando itens separados..
+#     for i in listadeItens:
+#         print(i)
+#         i.split([''])
  
-requisitosEmail()
+# requisitosEmail()
+
+a_list = ["abc", "def"]
+
+tabela = input("Digite a tabela: ")
+
+a_list.append(tabela)
+
+print(a_list)
+
+for l in a_list:
+    print(l)

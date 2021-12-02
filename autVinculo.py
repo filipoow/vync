@@ -335,10 +335,11 @@ if opcao == 1:
                 # elif selectTable == 'Multi':
                 #     for p in range(len(all_package4)):
                 #         cod.append(p)
-
+        
         main()
         clear_console()
         print("Tabela cadastrada com sucesso!")
+        print(nomeTabela)
         print("------------------------------------------------")
         tableTaxa = input("Deseja adicionar taxa?(S/N) ")
         print("------------------------------------------------")
