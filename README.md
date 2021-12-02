@@ -1,13 +1,13 @@
 # autovync
 ![image](https://eventos.ecommercebrasil.com.br/forum/wp-content/uploads/sites/108/2020/06/jadlog_capavideo.png)
 
-JADLOG - JAD LOGISTICA LTDA
+### JADLOG - JAD LOGISTICA LTDA
 
 Rotina: Automação de Vínculos, Cadastro de Taxas, Script de Email
 
 Desenvolvedor: Filipe Martins do Nascimento
 
-### Versão Atual: v1.4
+Versão Atual: v1.4
 
 ### Lista de Funções Principais:
 
