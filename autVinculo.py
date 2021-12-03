@@ -9,6 +9,7 @@ from config import Package1_5
 from config import Com1_5
 from config import Package2
 from config import Package2Fronteira
+from config import Com2Fronteira
 from config import Com2
 from config import Package4
 from config import all_package4
@@ -217,8 +218,8 @@ def scriptEmail():
         print("-------------------------------------")
         print("{}"", boa tarde!".format(nomeVendedor))
         print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
-        for t in range(len(nomeTabela)):
-            print("{} + {}".format(selectType[t],taxa))
+        for chave in listaChave:
+            print("{} + {}".format(chave,taxa))
         print("Origem {}".format(selectTable))
         print("\nPor gentileza solicitar testes.")
         print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
@@ -240,8 +241,8 @@ def scriptEmail():
         print("-------------------------------------")
         print("{}"", boa tarde!".format(nomeVendedor))
         print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
-        for t in range(len(nomeTabela)):
-            print("{}".format(selectType[t]))
+        for chave in listaChave:
+            print("{}".format(chave))
         print("Origem {}".format(selectTable))
         print("\nPor gentileza solicitar testes.")
     elif len(nomeTabela) == 1 and taxa == 0:
@@ -272,7 +273,7 @@ if opcao == 1:
     while sair == "N":
         #Se for colocar os códigos manualmente, adicionar antes de compilar..
         cod = []
-        nomeTabela = []
+        nomeTabela = {}
 
         print("------------------------------------------------")
         print("Preencher informações abaixo para o AutoCadastro")
@@ -282,8 +283,9 @@ if opcao == 1:
         qtn = int(input("Quantidade de vínculos: "))
         while len(cod) < qtn:
             #Selecionando o tipo da tabela
+            key = "key{}".format(len(cod))
             selectType = input("Digite o tipo da tabela: ")
-            nomeTabela.append(selectType)
+            nomeTabela[key] = selectType
             #Adicionando o código selecionado -- Package 1
             if selectType == 'Package 1':
                 selectTable = input("Digite a origem da tabela: ")
@@ -326,6 +328,12 @@ if opcao == 1:
                 if selectTable in Com2:
                     Com2Item = Com2[selectTable]
                     cod.append(Com2Item)
+            #Adicionando o código selecionado -- .COM 2 Fronteira
+            elif selectType == '.COM 2 Fronteira':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Com2Fronteira:
+                    Com2FronteiraItem = Com2Fronteira[selectTable]
+                    cod.append(Com2FronteiraItem)
             #Adicionando o código selecionado -- .COM 2
             elif selectType == 'Package 4':
                 selectTable = input("Digite a origem da tabela: ")
@@ -335,11 +343,13 @@ if opcao == 1:
                 # elif selectTable == 'Multi':
                 #     for p in range(len(all_package4)):
                 #         cod.append(p)
-        
+        #Listagem dos nomes das tabelas...
+        listaChave = nomeTabela.values()
+        listaChave = list(listaChave)
+
         main()
         clear_console()
         print("Tabela cadastrada com sucesso!")
-        print(nomeTabela)
         print("------------------------------------------------")
         tableTaxa = input("Deseja adicionar taxa?(S/N) ")
         print("------------------------------------------------")

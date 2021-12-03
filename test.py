@@ -71,13 +71,22 @@
  
 # requisitosEmail()
 
-a_list = ["abc", "def"]
+# teste = {}
 
-tabela = input("Digite a tabela: ")
 
-a_list.append(tabela)
 
-print(a_list)
+# i = 0
+# qnt = int(input("Digite a quantidade de vínculos: "))
+# while i < qnt:
+#     key = "key{}".format(i)
+#     tabela = input("Digite a tabela: ")
+#     teste[key] = tabela
+#     i = i + 1
+# print(teste)
 
-for l in a_list:
-    print(l)
+# listaChave = teste.values()
+# listaChave = list(listaChave)
+# print(listaChave)
+
+# for chave in listaChave:
+#     print(chave)
