@@ -13,6 +13,7 @@ from config import Com2Fronteira
 from config import Com2
 from config import Package4
 from config import all_package4
+from config import Pickup
 
 #Condições
 numIdentificador = 0
@@ -343,6 +344,12 @@ if opcao == 1:
                 # elif selectTable == 'Multi':
                 #     for p in range(len(all_package4)):
                 #         cod.append(p)
+            #Adicionando o código selecionado -- .COM 2
+            elif selectType == 'Pickup':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Pickup:
+                    PickupItem = Pickup[selectTable]
+                    cod.append(PickupItem)
         #Listagem dos nomes das tabelas...
         listaChave = nomeTabela.values()
         listaChave = list(listaChave)
