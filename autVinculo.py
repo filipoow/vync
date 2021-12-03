@@ -341,6 +341,11 @@ if opcao == 1:
                 if selectTable in Com2:
                     Com2Item = Com2[selectTable]
                     cod.append(Com2Item)
+                elif selectTable == 'Multi':
+                    listaCom2 = Com2.values()
+                    listaCom2 = list(listaCom2)
+                    for item in listaCom2:
+                        cod.append(item)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 2 Fronteira
@@ -357,11 +362,13 @@ if opcao == 1:
                 if selectTable in Package4:
                     Package4Item = Package4[selectTable]
                     cod.append(Package4Item)
+                elif selectTable == 'Multi':
+                    listaPackage4 = Package4.values()
+                    listaPackage4 = list(listaPackage4)
+                    for item in listaPackage4:
+                        cod.append(item)
                 else:
                     print("Erro na procura do código, informar o criador.")
-                # elif selectTable == 'Multi':
-                #     for p in range(len(all_package4)):
-                #         cod.append(p)
             #Adicionando o código selecionado -- .COM 2
             elif selectType == 'Pickup':
                 selectTable = input("Digite a origem da tabela: ")
