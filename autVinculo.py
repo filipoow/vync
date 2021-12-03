@@ -293,54 +293,72 @@ if opcao == 1:
                 if selectTable in Package1:
                     PackageItem = Package1[selectTable]
                     cod.append(PackageItem)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 1 
             elif selectType == '.COM 1':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Com1:
                     ComItem = Com1[selectTable]
                     cod.append(ComItem)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 1,5 
             elif selectType == 'Package 1.5':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Package1_5:
                     Package1_5Item = Package1_5[selectTable]
                     cod.append(Package1_5Item)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 1,5
             elif selectType == '.COM 1.5':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Com1_5:
                     Com1_5Item = Com1_5[selectTable]
                     cod.append(Com1_5Item)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 2 
             elif selectType == 'Package 2':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Package2:
                     Package2Item = Package2[selectTable]
                     cod.append(Package2Item)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 2 Fronteira
             elif selectType == 'Package 2 Fronteira':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Package2Fronteira:
                     Package2FrontItem = Package2Fronteira[selectTable]
                     cod.append(Package2FrontItem)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 2
             elif selectType == '.COM 2':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Com2:
                     Com2Item = Com2[selectTable]
                     cod.append(Com2Item)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 2 Fronteira
             elif selectType == '.COM 2 Fronteira':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Com2Fronteira:
                     Com2FronteiraItem = Com2Fronteira[selectTable]
                     cod.append(Com2FronteiraItem)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 2
             elif selectType == 'Package 4':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Package4:
                     Package4Item = Package4[selectTable]
                     cod.append(Package4Item)
+                else:
+                    print("Erro na procura do código, informar o criador.")
                 # elif selectTable == 'Multi':
                 #     for p in range(len(all_package4)):
                 #         cod.append(p)
@@ -350,6 +368,8 @@ if opcao == 1:
                 if selectTable in Pickup:
                     PickupItem = Pickup[selectTable]
                     cod.append(PickupItem)
+                else:
+                    print("Erro na procura do código, informar o criador.")
         #Listagem dos nomes das tabelas...
         listaChave = nomeTabela.values()
         listaChave = list(listaChave)
