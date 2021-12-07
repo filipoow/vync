@@ -3,6 +3,7 @@ import time
 import os
 
 #Importação Tabelas
+from config import PackageBalcao
 from config import Package1
 from config import Com1
 from config import Package1_5
@@ -288,6 +289,14 @@ if opcao == 1:
             key = "key{}".format(len(cod))
             selectType = input("Digite o tipo da tabela: ")
             nomeTabela[key] = selectType
+            #Adicionando o código selecionado -- Package Balcão
+            if selectType == 'Package Balcão':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in PackageBalcao:
+                    PackageBalcaoItem = PackageBalcao[selectTable]
+                    cod.append(PackageBalcaoItem)
+                else:
+                    print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 1
             if selectType == 'Package 1':
                 selectTable = input("Digite a origem da tabela: ")
