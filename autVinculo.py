@@ -12,6 +12,7 @@ from config import Package2Fronteira
 from config import Com2Fronteira
 from config import Com2
 from config import Package4
+from config import Package4Fronteira
 from config import all_package4
 from config import Pickup
 
@@ -356,7 +357,7 @@ if opcao == 1:
                     cod.append(Com2FronteiraItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
-            #Adicionando o código selecionado -- .COM 2
+            #Adicionando o código selecionado -- Package 4
             elif selectType == 'Package 4':
                 selectTable = input("Digite a origem da tabela: ")
                 if selectTable in Package4:
@@ -367,6 +368,14 @@ if opcao == 1:
                     listaPackage4 = list(listaPackage4)
                     for item in listaPackage4:
                         cod.append(item)
+                else:
+                    print("Erro na procura do código, informar o criador.")
+            #Adicionando o código selecionado -- Package 4 Fronteira
+            elif selectType == 'Package 4 Fronteira':
+                selectTable = input("Digite a origem da tabela: ")
+                if selectTable in Package4Fronteira:
+                    Package4FronteiraItem = Package4Fronteira[selectTable]
+                    cod.append(Package4FronteiraItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 2

@@ -22,6 +22,8 @@ Com2Fronteira = {'SAO': '11256'}
 
 Package2Fronteira = {'RIO': '12874', 'SAO': '11255'}
 
+Package4Fronteira = {'SAO': '12612'}
+
 #Importação Especial 4..............
 Package4 = {'SAO': '12436', 'SSA': '12772','BHZ': '12724','VIX':'12780'}
 
