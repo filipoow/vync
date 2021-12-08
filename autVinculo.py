@@ -3,20 +3,7 @@ import time
 import os
 
 #Importação Tabelas
-from config import PackageBalcao
-from config import Package1
-from config import Com1
-from config import Package1_5
-from config import Com1_5
-from config import Package2
-from config import Package2Fronteira
-from config import Com2Fronteira
-from config import Com2
-from config import Package4
-from config import Package4Fronteira
-from config import all_package4
-from config import Pickup
-
+from config import dict_package
 #Condições
 numIdentificador = 0
 
@@ -283,8 +270,8 @@ if opcao == 1:
         print("------------------------------------------------")
         nomeVendedor = input("Informar nome do vendedor subordinado: ")
         cnpj = input("Informe o cnpj: ")
-        qtn = int(input("Quantidade de vínculos: "))
-        while len(cod) < qtn:
+        opt_code = 'S'
+        while opt_code == 'S':
             #Selecionando o tipo da tabela
             key = "key{}".format(len(cod))
             selectType = input("Digite o tipo da tabela: ")
@@ -292,67 +279,67 @@ if opcao == 1:
             #Adicionando o código selecionado -- Package Balcão
             if selectType == 'Package Balcão':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in PackageBalcao:
-                    PackageBalcaoItem = PackageBalcao[selectTable]
-                    cod.append(PackageBalcaoItem)
+                if selectTable in dict_package['PackageBalcao']:
+                    tableItem = dict_package['PackageBalcao'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 1
             if selectType == 'Package 1':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Package1:
-                    PackageItem = Package1[selectTable]
-                    cod.append(PackageItem)
+                if selectTable in dict_package['Package1']:
+                    tableItem = dict_package['Package1'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 1 
             elif selectType == '.COM 1':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Com1:
-                    ComItem = Com1[selectTable]
-                    cod.append(ComItem)
+                if selectTable in dict_package['.Com1']:
+                    tableItem = dict_package['.Com1'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 1,5 
             elif selectType == 'Package 1.5':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Package1_5:
-                    Package1_5Item = Package1_5[selectTable]
-                    cod.append(Package1_5Item)
+                if selectTable in dict_package['Package1.5']:
+                    tableItem = dict_package['Package1.5'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 1,5
             elif selectType == '.COM 1.5':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Com1_5:
-                    Com1_5Item = Com1_5[selectTable]
-                    cod.append(Com1_5Item)
+                if selectTable in dict_package['.Com1.5']:
+                    tableItem = dict_package['.Com1.5'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 2 
             elif selectType == 'Package 2':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Package2:
-                    Package2Item = Package2[selectTable]
-                    cod.append(Package2Item)
+                if selectTable in dict_package['Package2']:
+                    tableItem = dict_package['Package2'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 2 Fronteira
             elif selectType == 'Package 2 Fronteira':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Package2Fronteira:
-                    Package2FrontItem = Package2Fronteira[selectTable]
-                    cod.append(Package2FrontItem)
+                if selectTable in dict_package['Package2Front']:
+                    tableItem = dict_package['Package2Front'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 2
             elif selectType == '.COM 2':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Com2:
-                    Com2Item = Com2[selectTable]
-                    cod.append(Com2Item)
+                if selectTable in dict_package['.Com2']:
+                    tableItem = dict_package['.Com2'][selectTable]
+                    cod.append(tableItem)
                 elif selectTable == 'Multi':
-                    listaCom2 = Com2.values()
+                    listaCom2 = dict_package['.Com2'].values()
                     listaCom2 = list(listaCom2)
                     for item in listaCom2:
                         cod.append(item)
@@ -361,19 +348,19 @@ if opcao == 1:
             #Adicionando o código selecionado -- .COM 2 Fronteira
             elif selectType == '.COM 2 Fronteira':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Com2Fronteira:
-                    Com2FronteiraItem = Com2Fronteira[selectTable]
-                    cod.append(Com2FronteiraItem)
+                if selectTable in dict_package['.Com2Front']:
+                    tableItem = dict_package['.Com2Front'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- Package 4
             elif selectType == 'Package 4':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Package4:
-                    Package4Item = Package4[selectTable]
-                    cod.append(Package4Item)
+                if selectTable in dict_package['Package4']:
+                    tableItem = dict_package['Package4'][selectTable]
+                    cod.append(tableItem)
                 elif selectTable == 'Multi':
-                    listaPackage4 = Package4.values()
+                    listaPackage4 = dict_package['Package4'].values()
                     listaPackage4 = list(listaPackage4)
                     for item in listaPackage4:
                         cod.append(item)
@@ -382,19 +369,20 @@ if opcao == 1:
             #Adicionando o código selecionado -- Package 4 Fronteira
             elif selectType == 'Package 4 Fronteira':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Package4Fronteira:
-                    Package4FronteiraItem = Package4Fronteira[selectTable]
-                    cod.append(Package4FronteiraItem)
+                if selectTable in dict_package['Package4Front']:
+                    tableItem = dict_package['Package4Front'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
             #Adicionando o código selecionado -- .COM 2
             elif selectType == 'Pickup':
                 selectTable = input("Digite a origem da tabela: ")
-                if selectTable in Pickup:
-                    PickupItem = Pickup[selectTable]
-                    cod.append(PickupItem)
+                if selectTable in dict_package['Pickup']:
+                    tableItem = dict_package['Pickup'][selectTable]
+                    cod.append(tableItem)
                 else:
                     print("Erro na procura do código, informar o criador.")
+            opt_code = input("Deseja cadastrar mais tabelas?(S/N) ")
         #Listagem dos nomes das tabelas...
         listaChave = nomeTabela.values()
         listaChave = list(listaChave)
