@@ -260,7 +260,7 @@ clear_console()
 if opcao == 1:
     #Requisitos para o loop...
     sair = "N"
-    while sair == "N":
+    while sair.lower() == "n":
         #Se for colocar os códigos manualmente, adicionar antes de compilar..
         cod = []
         nomeTabela = {}
@@ -393,7 +393,7 @@ if opcao == 1:
         print("------------------------------------------------")
         tableTaxa = input("Deseja adicionar taxa?(S/N) ")
         print("------------------------------------------------")
-        if tableTaxa == 'S':
+        if tableTaxa.lower() == 's':
             #Entrada de dados...
             print("Tipo de Taxa: PACKAGE, .COM, PICKUP, RODOVIARIO, ECONOMICO, \nEXPRESSO, CORPORATE, DOC, CARGO, EMERGENCIAL")
             tipoTaxa = input("Digite o tipo da taxa: ")
@@ -402,10 +402,12 @@ if opcao == 1:
             taxa = float(taxa)
             clear_console()
             print("Taxa cadastrada com sucesso!!")
-        else:
+        elif tableTaxa.lower() == 'n':
             clear_console()
             taxa = 0
             print('\nTaxa não adicionada.')
+        else:
+            print("Erro ao efetuar a ação, entrar em contato com o criador.")
         scriptEmail()
         print("------------------------------------------------")
         sair = input("Deseja sair do programa?(S/N) ")
@@ -413,7 +415,7 @@ if opcao == 1:
         clear_console()
 if opcao == 2:
     sair = "N"
-    while sair == "N":
+    while sair.lower() == "n":
         print("----------------------------------------------------")
         print("Preencher informações abaixo para o cadastro de taxa")
         print("----------------------------------------------------")
