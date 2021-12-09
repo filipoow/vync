@@ -255,14 +255,13 @@ def scriptEmail():
         print("Sem informação para compilar o email, por favor entrar em contato com o criador.")
         
 while i < len(base):
-    print(base[i]['nomeVendedor'])
-    nomeVendedor = base[i]['nomeVendedor']
-    cnpj = base[i]['cnpj']
-    tipoTabela = base[i]['tipoTabela']
-    origem = base[i]['Origem']
-    seTaxa = base[i]['seTaxa']
-    tipoTaxa = base[i]['tipoTaxa']
-    taxa = base[i]['taxa']
+    nomeVendedor = str(base[i]['nomeVendedor'])
+    cnpj = str(base[i]['cnpj'])
+    tipoTabela = str(base[i]['tipoTabela'])
+    origem = str(base[i]['Origem'])
+    seTaxa = str(base[i]['seTaxa'])
+    tipoTaxa = str(base[i]['tipoTaxa'])
+    taxa = str(base[i]['taxa'])
     
     #Se for colocar os códigos manualmente, adicionar antes de compilar..
     cod = []
@@ -369,16 +368,16 @@ while i < len(base):
     listaChave = list(listaChave)
 
     main()
-    clear_console()
+    # clear_console()
     print("Tabela cadastrada com sucesso!")
     print("------------------------------------------------")
     if seTaxa.lower() == 's':
         addTaxa()
         taxa = float(taxa)
-        clear_console()
+        # clear_console()
         print("Taxa cadastrada com sucesso!!")
     elif seTaxa.lower() == 'n':
-        clear_console()
+        # clear_console()
         taxa = 0
         print('\nTaxa não adicionada.')
     else:
