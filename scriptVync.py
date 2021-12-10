@@ -206,44 +206,6 @@ def main():
     pyautogui.press('tab')
     pyautogui.press('enter')
 
-def scriptEmail():
-    #Entrada de dados..
-
-    #Email de mais de uma tabela c/ taxa...
-    if len(nomeTabela) > 1 and taxa > 0:
-        print("{}"", boa tarde!".format(nomeVendedor))
-        print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
-        for chave in listaChave:
-            print("{} + {}".format(chave,taxa))
-        print("Origem {}".format(origem))
-        print("\nPor gentileza solicitar testes.")
-        print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
-    #Email de uma tabela com taxa
-    elif len(nomeTabela) == 1 and taxa > 0:
-        print("{}"", boa tarde!".format(nomeVendedor))
-        print("\nConforme solicitado foi cadastrada no CNPJ {} a tabela:".format(cnpj))
-        print("{} + {}".format(tipoTabela,taxa))
-        print("Origem {}".format(origem))
-        print("\nPor gentileza solicitar testes.")
-        print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
-    #Email mais de uma tabela sem taxa.
-    elif len(nomeTabela) > 1 and taxa == 0:
-        print("{}"", boa tarde!".format(nomeVendedor))
-        print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
-        for chave in listaChave:
-            print("{}".format(chave))
-        print("Origem {}".format(origem))
-        print("\nPor gentileza solicitar testes.")
-    elif len(nomeTabela) == 1 and taxa == 0:
-        print("{}"", boa tarde!".format(nomeVendedor))
-        print("\nConforme solicitado foi cadastrada no CNPJ {} a tabela:".format(cnpj))
-        print("{}".format(tipoTabela))
-        print("Origem {}".format(origem))
-        print("\nPor gentileza solicitar testes.")
-    #Caso de erro
-    else:
-        print("Sem informação para compilar o email, por favor entrar em contato com o criador.")
-
 def fim():
     print("------------------------------------------------")
     print(f"            --Total de vínculos realizados: {i}")
@@ -262,10 +224,7 @@ while i < len(base):
     
     #Se for colocar os códigos manualmente, adicionar antes de compilar..
     cod = []
-    nomeTabela = {}
-    #Selecionando o tipo da tabela
-    key = "key{}".format(len(cod))
-    nomeTabela[key] = tipoTabela
+
     #Adicionando o código selecionado -- Package Balcão
     if tipoTabela.lower() == 'package balcão':
         if origem in dict_package['PackageBalcao']:
@@ -360,9 +319,6 @@ while i < len(base):
             cod.append(itemTabela)
         else:
             print("Erro na procura do código, informar o criador.")
-    #Listagem dos nomes das tabelas...
-    listaChave = nomeTabela.values()
-    listaChave = list(listaChave)
 
     main()
     # clear_console()
@@ -379,6 +335,5 @@ while i < len(base):
         print("               -- Taxa não adicionada!")
     else:
         print("Erro ao efetuar a ação, entrar em contato com o criador.")
-    scriptEmail()
     i += 1
 fim()
