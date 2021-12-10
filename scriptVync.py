@@ -379,9 +379,6 @@ while i < len(base):
         print("               -- Taxa não adicionada!")
     else:
         print("Erro ao efetuar a ação, entrar em contato com o criador.")
-    print("------------------------------------------------")
-    print("          ==Gerando Script de E-mail==          ")
-    print(f"         -- Número: {i}                        ")
     scriptEmail()
     i += 1
 fim()
