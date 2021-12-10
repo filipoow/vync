@@ -6,14 +6,20 @@ import os
 
 #Importação Tabelas
 from config import dict_package
+from config import all_package4
 
 df = pd.read_excel('base.xlsx', index_col=False)
 # Convertendo df para dicionário
 base = df.to_dict('index')
+#Declarando critérios
 i = 0 
 
 def clear_console():
     os.system('cls')
+
+def abrindoCentral():
+    #Abrindo o Cadastro Central
+    pyautogui.click(x=217, y=748)
 
 def addTaxa():
     # #Entrada de dados...
@@ -21,8 +27,6 @@ def addTaxa():
     # tipoTaxa = input("Digite o tipo da taxa: ")
     # taxa = input("Digite a taxa: ")
 
-    #Abrindo o Cadastro Central
-    pyautogui.click(x=217, y=748)
     #Abrindo aba de taxa
     pyautogui.click(x=36, y=33)
     time.sleep(1)
@@ -164,8 +168,6 @@ def addTaxa():
 
 
 def main():
-    #Abrindo o Cadastro Central
-    pyautogui.click(x=217, y=748)
     #Loop para cadastro das tabelas..
     for c in range(len(cod)):
         pyautogui.click(x=403, y=362)
@@ -209,9 +211,6 @@ def scriptEmail():
 
     #Email de mais de uma tabela c/ taxa...
     if len(nomeTabela) > 1 and taxa > 0:
-        print("\n-------------------------------------")
-        print("            Script Email             ")
-        print("-------------------------------------")
         print("{}"", boa tarde!".format(nomeVendedor))
         print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
         for chave in listaChave:
@@ -221,9 +220,6 @@ def scriptEmail():
         print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
     #Email de uma tabela com taxa
     elif len(nomeTabela) == 1 and taxa > 0:
-        print("\n-------------------------------------")
-        print("            Script Email             ")
-        print("-------------------------------------")
         print("{}"", boa tarde!".format(nomeVendedor))
         print("\nConforme solicitado foi cadastrada no CNPJ {} a tabela:".format(cnpj))
         print("{} + {}".format(tipoTabela,taxa))
@@ -232,9 +228,6 @@ def scriptEmail():
         print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
     #Email mais de uma tabela sem taxa.
     elif len(nomeTabela) > 1 and taxa == 0:
-        print("\n-------------------------------------")
-        print("            Script Email             ")
-        print("-------------------------------------")
         print("{}"", boa tarde!".format(nomeVendedor))
         print("\nConforme solicitado foram cadastradas no CNPJ {} as tabelas:".format(cnpj))
         for chave in listaChave:
@@ -242,9 +235,6 @@ def scriptEmail():
         print("Origem {}".format(origem))
         print("\nPor gentileza solicitar testes.")
     elif len(nomeTabela) == 1 and taxa == 0:
-        print("\n-------------------------------------")
-        print("            Script Email             ")
-        print("-------------------------------------")
         print("{}"", boa tarde!".format(nomeVendedor))
         print("\nConforme solicitado foi cadastrada no CNPJ {} a tabela:".format(cnpj))
         print("{}".format(tipoTabela))
@@ -253,7 +243,14 @@ def scriptEmail():
     #Caso de erro
     else:
         print("Sem informação para compilar o email, por favor entrar em contato com o criador.")
-        
+
+def fim():
+    print("------------------------------------------------")
+    print(f"            --Total de vínculos realizados: {i}")
+
+#Abrindo a central para o inicio dos cadastros
+abrindoCentral()  
+
 while i < len(base):
     nomeVendedor = str(base[i]['nomeVendedor'])
     cnpj = str(base[i]['cnpj'])
@@ -345,7 +342,7 @@ while i < len(base):
         elif origem == 'Multi':
             listaPackage4 = dict_package['Package4'].values()
             listaPackage4 = list(listaPackage4)
-            for item in listaPackage4:
+            for item in all_package4:
                 cod.append(item)
         else:
             print("Erro na procura do código, informar o criador.")
@@ -369,21 +366,22 @@ while i < len(base):
 
     main()
     # clear_console()
-    print("Tabela cadastrada com sucesso!")
     print("------------------------------------------------")
+    print("            ==Operações Realizadas==            ")
+    print(f"               -- Identificador: {i}           ")
+    print("               -- Tabela cadastrada com sucesso!")
     if seTaxa.lower() == 's':
         addTaxa()
         taxa = float(taxa)
-        # clear_console()
-        print("Taxa cadastrada com sucesso!!")
+        print("               -- Taxa adicionada com sucesso!")
     elif seTaxa.lower() == 'n':
-        # clear_console()
         taxa = 0
-        print('\nTaxa não adicionada.')
+        print("               -- Taxa não adicionada!")
     else:
         print("Erro ao efetuar a ação, entrar em contato com o criador.")
-    scriptEmail()
     print("------------------------------------------------")
-    print("Todas tabelas cadastradas!")
+    print("          ==Gerando Script de E-mail==          ")
+    print(f"         -- Número: {i}                        ")
+    scriptEmail()
     i += 1
-
+fim()

@@ -4,6 +4,7 @@ import os
 
 #Importação Tabelas
 from config import dict_package
+from config import all_package4
 #Condições
 numIdentificador = 0
 
@@ -362,7 +363,7 @@ if opcao == 1:
                 elif selectTable == 'Multi':
                     listaPackage4 = dict_package['Package4'].values()
                     listaPackage4 = list(listaPackage4)
-                    for item in listaPackage4:
+                    for item in all_package4:
                         cod.append(item)
                 else:
                     print("Erro na procura do código, informar o criador.")
