@@ -2,79 +2,57 @@ import pandas as pd
 
 df_base = pd.read_excel('base.xlsx', index_col=False)
 
-#Printando DataFrame da Base de Dados
-print(df_base)
-
 #Procurando linhas duplicadas
 linhaDuplicadas = df_base[df_base.duplicated('cnpj',keep=False)]
-print("-----------------------------------------------------------------------")
-print("                                           --Buscando linhas duplicadas")
-print(linhaDuplicadas)
+dadosduplicados = df_base[df_base.duplicated('cnpj')]
 
+#Procurando linha únicas
 linhaUnicas = df_base.drop_duplicates('cnpj', keep=False)
-
-#Buscando linhas únicas
-print("-----------------------------------------------------------------------")
-print("                                               --Buscando linhas únicas")
-print(linhaUnicas)
-
-# Convertendo df para dicionário
-base_duplicada = linhaDuplicadas.to_dict('index')
-
-#Convertendo itens do dicionário em string
-for i in base_duplicada:
-    chaves = base_duplicada[i].items()
-    nova_base_duplicada = {str(key): str(value) for key, value in chaves}
-
 base_unica = linhaUnicas.to_dict('index')
-
-#Printando Dicionário
-print("-----------------------------------------------------------------------")
-print("                                      --Dicionário de linhas duplicadas")
-print(base_duplicada)
-print("-----------------------------------------------------------------------")
-print("                                          --Dicionário de linhas únicas")
-print(base_unica)
 
 
 def scriptEmailDuplicado():
-    for item in base_duplicada:
-        i = item 
-        if i in base_duplicada:
-            nomeVendedor = str(base_duplicada[i]['nomeVendedor'])
-            cnpj = str(base_duplicada[i]['cnpj'])
-            for dupli in base_duplicada[i]['cnpj']:
-                listaTabelas = []
-                listaTabelas.append(str(base_duplicada['tipoTabela']))
-            origem = str(base_duplicada[i]['Origem'])
-            seTaxa = str(base_duplicada[i]['seTaxa'])
-            taxa = str(base_duplicada[i]['taxa'])
-        else:
-            print("Não foi possível encontrar os dados!")  
-        if seTaxa.lower() == 's':
+    for i in dadosduplicados.index:
+        #Requisitos para procura de dados...
+        cnpj = dadosduplicados['cnpj'][i]
+
+        #Configurando o layout
+        nomeVendedor = dadosduplicados['nomeVendedor'][i]
+        cnpj = dadosduplicados['cnpj'][i]
+        origem = dadosduplicados['Origem'][i]
+        seTaxa = dadosduplicados['seTaxa'][i]
+        taxa = dadosduplicados['taxa'][i]
+        if seTaxa.lower() == 'sim':
+            #Imprimindo email
             print("------------------------------------------------")
             print("          ==Gerando Script de E-mail==          ")
-            print(f"         -- Número: {len(base_duplicada)}       ")
+            print(f"         -- Número: {len(dadosduplicados)}       ")
             print("------------------------------------------------")
             print(f"\n\n{nomeVendedor}, boa tarde!")
-            print(f"\nConforme solicitado foi cadastrada no CNPJ {cnpj} a tabela:")
-            for item in listaTabelas:
-                print(f"{item} + {taxa}")
+            print(f"\nConforme solicitado foram cadastradas no CNPJ {cnpj} as tabela:")
+            #Procura de dados do tipoTabela....
+            dados = df_base.loc[linhaDuplicadas['cnpj'] == cnpj]
+            #Loop para 
+            for i in dados.index:
+                print("{} + {}".format(dados['tipoTabela'][i], dados['taxa'][i]))
             print(f"Origem {origem}")
             print("\nPor gentileza solicitar testes.")
             print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
-        elif seTaxa.lower() == 'n':
+        elif seTaxa.lower() == 'não':
+             #Imprimindo email
             print("------------------------------------------------")
             print("          ==Gerando Script de E-mail==          ")
-            print(f"         -- Número: {len(base_duplicada)}       ")
+            print(f"         -- Número: {len(dadosduplicados)}       ")
             print("------------------------------------------------")
             print(f"\n\n{nomeVendedor}, boa tarde!")
-            print(f"\nConforme solicitado foi cadastrada no CNPJ {cnpj} a tabela:")
-            for item in listaTabelas:
-                print(item)
+            print(f"\nConforme solicitado foram cadastradas no CNPJ {cnpj} as tabela:")
+            #Procura de dados do tipoTabela....
+            dados = df_base.loc[linhaDuplicadas['cnpj'] == cnpj]
+            #Loop para 
+            for i in dados.index:
+                print(dados['tipoTabela'][i])
             print(f"Origem {origem}")
             print("\nPor gentileza solicitar testes.")
-            print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
 
 def scriptEmailUnico():
     #Definindo critérios
@@ -118,4 +96,4 @@ def scriptEmailUnico():
                 arquivo.write("\n\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
         else:
             print("Não foi possível gerar os scripts, informar o desenvolvedor.")
-scriptEmailUnico()
+scriptEmailDuplicado()
