@@ -20,6 +20,12 @@ print(linhaUnicas)
 
 # Convertendo df para dicionário
 base_duplicada = linhaDuplicadas.to_dict('index')
+
+#Convertendo itens do dicionário em string
+for i in base_duplicada:
+    chaves = base_duplicada[i].items()
+    nova_base_duplicada = {str(key): str(value) for key, value in chaves}
+
 base_unica = linhaUnicas.to_dict('index')
 
 #Printando Dicionário
@@ -38,7 +44,6 @@ def scriptEmailDuplicado():
             nomeVendedor = str(base_duplicada[i]['nomeVendedor'])
             cnpj = str(base_duplicada[i]['cnpj'])
             for dupli in base_duplicada[i]['cnpj']:
-                dupli = str(dupli)
                 listaTabelas = []
                 listaTabelas.append(str(base_duplicada['tipoTabela']))
             origem = str(base_duplicada[i]['Origem'])
@@ -91,7 +96,7 @@ def scriptEmailUnico():
             with open(f'scriptEmail\{cnpj}.txt', 'w') as arquivo:
                 arquivo.write("\n----------------------------------------------------------------------------------")
                 arquivo.write("\n                         ==Gerando Script de E-mail==                             ")
-                arquivo.write(f"\n                        -- Processando: {Identificador}/{len(base_unica)}        ")
+                arquivo.write(f"\n                         -- Processando: {Identificador}/{len(base_unica)}        ")
                 arquivo.write("\n----------------------------------------------------------------------------------")
                 arquivo.write(f"\n{nomeVendedor}, boa tarde!")
                 arquivo.write(f"\n\nConforme solicitado foi cadastrada no CNPJ {cnpj} a tabela:")
@@ -103,7 +108,7 @@ def scriptEmailUnico():
             with open(f'scriptEmail\{cnpj}.txt', 'w') as arquivo:
                 arquivo.write("\n----------------------------------------------------------------------------------")
                 arquivo.write("\n                         ==Gerando Script de E-mail==                             ")
-                arquivo.write(f"\n                        -- Processando: {Identificador}/{len(base_unica)}        ")
+                arquivo.write(f"\n                         -- Processando: {Identificador}/{len(base_unica)}        ")
                 arquivo.write("\n----------------------------------------------------------------------------------")
                 arquivo.write(f"\n{nomeVendedor}, boa tarde!")
                 arquivo.write(f"\n\nConforme solicitado foi cadastrada no CNPJ {cnpj} a tabela:")

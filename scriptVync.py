@@ -60,7 +60,7 @@ def addTaxa():
         time.sleep(1)
         #Atualizando dados..
         pyautogui.click(x=715, y=279)
-    if tipoTaxa.lower() == ".com":
+    elif tipoTaxa.lower() == ".com":
         #Abrindo itens
         pyautogui.click(x=694, y=455)
         time.sleep(1)
@@ -81,7 +81,7 @@ def addTaxa():
         time.sleep(1)
         #Atualizando dados..
         pyautogui.click(x=715, y=279)
-    if tipoTaxa.lower() == "rodoviario":
+    elif tipoTaxa.lower() == "rodoviario":
         #Abrindo itens
         pyautogui.click(x=694, y=455)
         time.sleep(1)
@@ -102,7 +102,7 @@ def addTaxa():
         time.sleep(1)
         #Atualizando dados..
         pyautogui.click(x=715, y=279)
-    if tipoTaxa.lower() == "economico":
+    elif tipoTaxa.lower() == "economico":
         #Abrindo itens
         pyautogui.click(x=694, y=455)
         time.sleep(1)
@@ -123,7 +123,7 @@ def addTaxa():
         time.sleep(1)
         #Atualizando dados..
         pyautogui.click(x=715, y=279)
-    if tipoTaxa.lower() == "expresso":
+    elif tipoTaxa.lower() == "expresso":
         #Abrindo itens
         pyautogui.click(x=694, y=455)
         time.sleep(1)
@@ -144,7 +144,7 @@ def addTaxa():
         time.sleep(1)
         #Atualizando dados..
         pyautogui.click(x=715, y=279)
-    if tipoTaxa.lower() == "pickup":
+    elif tipoTaxa.lower() == "pickup":
         #Abrindo itens
         pyautogui.click(x=694, y=455)
         time.sleep(1)
@@ -165,7 +165,11 @@ def addTaxa():
         time.sleep(1)
         #Atualizando dados..
         pyautogui.click(x=715, y=279)
-
+    else:
+        print("Não foi possível adicionar a taxa.")
+    #Fechando aba de taxa..
+    time.sleep(1)
+    pyautogui.click(x=893, y=250)    
 
 def main():
     #Loop para cadastro das tabelas..
