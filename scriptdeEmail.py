@@ -1,4 +1,5 @@
 import pandas as pd
+import time
 
 df_base = pd.read_excel('base.xlsx', index_col=False)
 
@@ -103,8 +104,14 @@ def scriptEmailUnico():
                 arquivo.write("\n\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
         else:
             print("Não foi possível gerar os scripts, informar o desenvolvedor.")
-
-print("\nGerando Script de E-mail....")
+print("\n-----------------------------")
+print("Gerando Script de E-mail....")
 scriptEmailDuplicado()
 scriptEmailUnico()
-print("Email - Aplicações Finalizadas!")
+time.sleep(1)
+print("\nEmails Únicos - OK")
+time.sleep(1)
+print("Emails Duplos - OK")
+time.sleep(1)
+print("\n-----------------------------")
+print("Aplicações Finalizadas!")
