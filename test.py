@@ -1,33 +1,9 @@
 import pandas as pd
-import pyautogui
-import time
-import os
 
-#Importação Tabelas
-from config import dict_package
-from config import all_package4
-from scriptVync import abrindoCentral
+df_base = pd.read_excel('base.xlsx', index_col=False)
 
-df = pd.read_excel('base.xlsx', index_col=False)
-# Convertendo df para dicionário
-base = df.to_dict('index')
+print(df_base)
 
-abrindoCentral()
-for i in range(len(base)):
-    print(i)
-    nomeVendedor = str(base[i]['nomeVendedor'])
-    cnpj = str(base[i]['cnpj'])
-    tipoTabela = str(base[i]['tipoTabela'])
-    origem = str(base[i]['Origem'])
-    seTaxa = str(base[i]['seTaxa'])
-    tipoTaxa = str(base[i]['tipoTaxa'])
-    taxa = str(base[i]['taxa'])
-
-    cod = []
+for index, row in df_base.iterrows():
+    print(row['cnpj'],row['tipoTabela'])
     
-    if tipoTabela.lower() == '.com 2':
-        if origem in dict_package['.Com2']:
-            itemTabela = dict_package['.Com2'][origem]
-            cod.append(itemTabela)
-
-    print(cod)
