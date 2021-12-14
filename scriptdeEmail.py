@@ -12,9 +12,12 @@ base_unica = linhaUnicas.to_dict('index')
 
 
 def scriptEmailDuplicado():
+    #Definindo critérios
+    Identificador = 0
     for i in dadosduplicados.index:
         #Requisitos para procura de dados...
         cnpj = dadosduplicados['cnpj'][i]
+        Identificador += 1
 
         #Configurando o layout
         nomeVendedor = dadosduplicados['nomeVendedor'][i]
@@ -26,7 +29,7 @@ def scriptEmailDuplicado():
             #Imprimindo email
             print("------------------------------------------------")
             print("          ==Gerando Script de E-mail==          ")
-            print(f"         -- Número: {len(dadosduplicados)}       ")
+            print(f"         -- Número: {Identificador}/{len(dadosduplicados)}       ")
             print("------------------------------------------------")
             print(f"\n\n{nomeVendedor}, boa tarde!")
             print(f"\nConforme solicitado foram cadastradas no CNPJ {cnpj} as tabela:")
@@ -42,7 +45,7 @@ def scriptEmailDuplicado():
              #Imprimindo email
             print("------------------------------------------------")
             print("          ==Gerando Script de E-mail==          ")
-            print(f"         -- Número: {len(dadosduplicados)}       ")
+            print(f"         -- Número: {Identificador}/{len(dadosduplicados)}       ")
             print("------------------------------------------------")
             print(f"\n\n{nomeVendedor}, boa tarde!")
             print(f"\nConforme solicitado foram cadastradas no CNPJ {cnpj} as tabela:")
