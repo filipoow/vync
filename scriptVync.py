@@ -165,6 +165,69 @@ def addTaxa():
         time.sleep(1)
         #Atualizando dados..
         pyautogui.click(x=715, y=279)
+    elif tipoTaxa.lower() == "corporate":
+        #Abrindo itens
+        pyautogui.click(x=694, y=455)
+        time.sleep(1)
+        #Selecionando Corporate
+        pyautogui.click(x=576, y=568)
+        time.sleep(1)
+        #Inserindo taxa
+        pyautogui.click(x=561, y=492)
+        #Prevenção de erro
+        with pyautogui.hold('ctrl'):
+            pyautogui.press('a')
+        pyautogui.press('backspace')
+        pyautogui.typewrite(taxa)
+        #Salvando taxa..
+        pyautogui.click(x=855, y=456)
+        #Prevenção de erros
+        pyautogui.click(x=706, y=430)
+        time.sleep(1)
+        #Atualizando dados..
+        pyautogui.click(x=715, y=279)
+    elif tipoTaxa.lower() == "cargo":
+        #Abrindo itens
+        pyautogui.click(x=694, y=455)
+        time.sleep(1)
+        #Selecionando Cargo
+        pyautogui.click(x=575, y=606)
+        time.sleep(1)
+        #Inserindo taxa
+        pyautogui.click(x=561, y=492)
+        #Prevenção de erro
+        with pyautogui.hold('ctrl'):
+            pyautogui.press('a')
+        pyautogui.press('backspace')
+        pyautogui.typewrite(taxa)
+        #Salvando taxa..
+        pyautogui.click(x=855, y=456)
+        #Prevenção de erros
+        pyautogui.click(x=706, y=430)
+        time.sleep(1)
+        #Atualizando dados..
+        pyautogui.click(x=715, y=279)
+    elif tipoTaxa.lower() == "doc":
+        #Abrindo itens
+        pyautogui.click(x=694, y=455)
+        time.sleep(1)
+        #Selecionando DOC
+        pyautogui.click(x=572, y=552)
+        time.sleep(1)
+        #Inserindo taxa
+        pyautogui.click(x=561, y=492)
+        #Prevenção de erro
+        with pyautogui.hold('ctrl'):
+            pyautogui.press('a')
+        pyautogui.press('backspace')
+        pyautogui.typewrite(taxa)
+        #Salvando taxa..
+        pyautogui.click(x=855, y=456)
+        #Prevenção de erros
+        pyautogui.click(x=706, y=430)
+        time.sleep(1)
+        #Atualizando dados..
+        pyautogui.click(x=715, y=279)
     else:
         print("Não foi possível adicionar a taxa.")
     #Fechando aba de taxa..

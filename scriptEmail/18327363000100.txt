@@ -1,14 +1,18 @@
 
 ------------------------------------------------
           ==Gerando Script de E-mail==          
-         -- Número: 1/1       
+         -- Número: 2       
 ------------------------------------------------
 
 Naiara, boa tarde!
 
-Conforme solicitado foram cadastradas no CNPJ 43101014000104 as tabela:
-Package 1 + 1.95
-.COM 1 + 1.95
+Conforme solicitado foram cadastradas no CNPJ 18327363000100 as tabelas:
+PACKAGE 2 + 2.95
+.COM 2 + 2.95
+PICKUP + 1
+CORPORATE + 2.95
+CARGO + 2.95
+DOC + 2.95
 Origem SAO
 
 Por gentileza solicitar testes.
