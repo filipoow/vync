@@ -8,9 +8,7 @@ import os
 from config import dict_package
 from config import all_package4
 
-df = pd.read_excel('base.xlsx', index_col=False)
-# Convertendo df para dicionário
-base = df.to_dict('index')
+base = pd.read_excel('base.xlsx')
 #Declarando critérios
 i = 0 
 
@@ -280,14 +278,14 @@ def fim():
 #Abrindo a central para o inicio dos cadastros
 abrindoCentral()  
 
-while i < len(base):
-    nomeVendedor = str(base[i]['nomeVendedor'])
-    cnpj = str(base[i]['cnpj'])
-    tipoTabela = str(base[i]['tipoTabela'])
-    origem = str(base[i]['Origem'])
-    seTaxa = str(base[i]['seTaxa'])
-    tipoTaxa = str(base[i]['tipoTaxa'])
-    taxa = str(base[i]['taxa'])
+for i in base.index:
+    nomeVendedor = str(base['nomeVendedor'][i])
+    cnpj = str(base['cnpj'][i])
+    tipoTabela = str(base['tipoTabela'][i])
+    origem = str(base['Origem'][i])
+    seTaxa = str(base['seTaxa'][i])
+    tipoTaxa = str(base['tipoTaxa'][i])
+    taxa = str(base['taxa'][i])
     
     #Se for colocar os códigos manualmente, adicionar antes de compilar..
     cod = []
@@ -402,5 +400,4 @@ while i < len(base):
         print("               -- Taxa não adicionada!")
     else:
         print("Erro ao efetuar a ação, entrar em contato com o criador.")
-    i += 1
 fim()

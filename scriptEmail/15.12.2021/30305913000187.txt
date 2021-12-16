@@ -1,0 +1,14 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 1       
+------------------------------------------------
+
+Erik, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 30305913000187 as tabela:
+PACKAGE 2
+.COM 2
+Origem BHZ
+
+Por gentileza solicitar testes.

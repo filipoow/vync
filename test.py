@@ -1,65 +1,32 @@
 import pandas as pd
+from pandas.core.indexes import base
 
-df_base = pd.read_excel('base.xlsx', index_col=False)
+#Importação codigos
+df_codigos_vinculos = pd.read_excel('base_de_dados\codigo_ref.xlsx',dtype=object)
 
-linhaDuplicadas = df_base[df_base.duplicated('cnpj',keep=False)]
+#Importação base de dados
+base = pd.read_excel('base.xlsx')
+print(base)
+# Convertendo df para dicionário
 
-print(linhaDuplicadas)
-dadosduplicados = df_base[df_base.duplicated('cnpj')]
-print(dadosduplicados)
-for i in dadosduplicados.index:
-    print(i)
-    cnpj = dadosduplicados['cnpj'][i]
+#Declarando critérios
+i = 0 
 
-    nomeVendedor = dadosduplicados['nomeVendedor'][i]
-    origem = dadosduplicados['Origem'][i]
-    seTaxa = dadosduplicados['seTaxa'][i]
-    taxa = dadosduplicados['taxa'][i]
-    if seTaxa.lower() == 'sim':
-        print(cnpj,nomeVendedor,origem,seTaxa,taxa)
-        dados = df_base.loc[linhaDuplicadas['cnpj'] == cnpj]
-        for i in dados.index:
-            print("{} + {}".format(dados['tipoTabela'][i], dados['taxa'][i]))
-
+for i in base.index:
+    nomeVendedor = str(base['nomeVendedor'][i])
+    cnpj = str(base['cnpj'][i])
+    tipoTabela = str(base['tipoTabela'][i])
+    origem = str(base['Origem'][i])
+    seTaxa = str(base['seTaxa'][i])
+    tipoTaxa = str(base['tipoTaxa'][i])
+    taxa = str(base['taxa'][i])
     
-# for i in dadosduplicados.index:
-#     #Requisitos para procura de dados...
-#     cnpj = dadosduplicados['cnpj'][i]
+    #Se for colocar os códigos manualmente, adicionar antes de compilar..
+    cod = []
 
-#     #Configurando o layout
-#     nomeVendedor = dadosduplicados['nomeVendedor'][i]
-#     cnpj = dadosduplicados['cnpj'][i]
-#     origem = dadosduplicados['Origem'][i]
-#     seTaxa = dadosduplicados['seTaxa'][i]
-#     taxa = dadosduplicados['taxa'][i]
-#     if seTaxa.lower() == 'sim':
-#         #Imprimindo email
-#         print("------------------------------------------------")
-#         print("          ==Gerando Script de E-mail==          ")
-#         print(f"         -- Número: {len(dadosduplicados)}       ")
-#         print("------------------------------------------------")
-#         print(f"\n\n{nomeVendedor}, boa tarde!")
-#         print(f"\nConforme solicitado foram cadastradas no CNPJ {cnpj} as tabela:")
-#         #Procura de dados do tipoTabela....
-#         dados = df_base.loc[linhaDuplicadas['cnpj'] == cnpj]
-#         #Loop para 
-#         for i in dados.index:
-#             print("{} + {}".format(dados['tipoTabela'][i], dados['taxa'][i]))
-#         print(f"Origem {origem}")
-#         print("\nPor gentileza solicitar testes.")
-#         print("\nAs taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.")
-#     elif seTaxa.lower() == 'não':
-#          #Imprimindo email
-#         print("------------------------------------------------")
-#         print("          ==Gerando Script de E-mail==          ")
-#         print(f"         -- Número: {len(dadosduplicados)}       ")
-#         print("------------------------------------------------")
-#         print(f"\n\n{nomeVendedor}, boa tarde!")
-#         print(f"\nConforme solicitado foram cadastradas no CNPJ {cnpj} as tabela:")
-#         #Procura de dados do tipoTabela....
-#         dados = df_base.loc[linhaDuplicadas['cnpj'] == cnpj]
-#         #Loop para 
-#         for i in dados.index:
-#             print(dados['tipoTabela'][i])
-#         print(f"Origem {origem}")
-#         print("\nPor gentileza solicitar testes.")
+    df_codigos = df_codigos_vinculos[df_codigos_vinculos['Modalidade'] == tipoTabela]
+    print(df_codigos)
+    df_origem = df_codigos[df_codigos['IATA'] == origem]
+    print(df_origem)
+    for i in df_origem.index:
+        print(df_origem['Cod_Tabela'][i])
