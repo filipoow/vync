@@ -1,0 +1,16 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 1       
+------------------------------------------------
+
+Naiara, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 22352091000167 as tabelas:
+PACKAGE 1.5 + 1.95
+.COM 1.5 + 1.95
+Origem SAO
+
+Por gentileza solicitar testes.
+
+As taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.

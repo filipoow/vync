@@ -1,0 +1,14 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 1       
+------------------------------------------------
+
+Michele, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 42111478000139 as tabela:
+PACKAGE 1
+.COM 1
+Origem SAO
+
+Por gentileza solicitar testes.

@@ -1,0 +1,14 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 3       
+------------------------------------------------
+
+Naiara, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 10992010000104 as tabela:
+PACKAGE 1.5
+.COM 1.5
+Origem SAO
+
+Por gentileza solicitar testes.

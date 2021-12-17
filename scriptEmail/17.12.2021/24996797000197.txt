@@ -1,0 +1,16 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 2       
+------------------------------------------------
+
+Michele, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 24996797000197 as tabelas:
+PACKAGE 2 + 1.95
+.COM 2 + 1.95
+Origem SAO
+
+Por gentileza solicitar testes.
+
+As taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.

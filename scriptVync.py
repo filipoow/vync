@@ -8,7 +8,12 @@ import os
 from config import dict_package
 from config import all_package4
 
+#Importação codigos
+df_codigos_vinculos = pd.read_excel('base_de_dados\codigo_ref.xlsx',dtype=object)
+
+#Importação base de dados
 base = pd.read_excel('base.xlsx')
+
 #Declarando critérios
 i = 0 
 
@@ -273,12 +278,16 @@ def main():
 
 def fim():
     print("------------------------------------------------")
-    print(f"            --Total de vínculos realizados: {i}")
+    print(f"            --Total de vínculos realizados: {len(base.index)}")
 
 #Abrindo a central para o inicio dos cadastros
 abrindoCentral()  
 
 for i in base.index:
+    #Definição de critérios
+    Identificador = 0 
+
+    #Declaração de dados
     nomeVendedor = str(base['nomeVendedor'][i])
     cnpj = str(base['cnpj'][i])
     tipoTabela = str(base['tipoTabela'][i])
@@ -289,101 +298,116 @@ for i in base.index:
     
     #Se for colocar os códigos manualmente, adicionar antes de compilar..
     cod = []
+    cod_temp = []
 
-    #Adicionando o código selecionado -- Package Balcão
-    if tipoTabela.lower() == 'package balcão':
-        if origem in dict_package['PackageBalcao']:
-            itemTabela = dict_package['PackageBalcao'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- Package 1
-    if tipoTabela.lower() == 'package 1':
-        if origem in dict_package['Package1']:
-            itemTabela = dict_package['Package1'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- .COM 1 
-    elif tipoTabela.lower() == '.com 1':
-        if origem in dict_package['.Com1']:
-            itemTabela = dict_package['.Com1'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- Package 1,5 
-    elif tipoTabela.lower() == 'package 1.5':
-        if origem in dict_package['Package1.5']:
-            itemTabela = dict_package['Package1.5'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- .COM 1,5
-    elif tipoTabela.lower() == '.com 1.5':
-        if origem in dict_package['.Com1.5']:
-            itemTabela = dict_package['.Com1.5'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- Package 2 
-    elif tipoTabela.lower() == 'package 2':
-        if origem in dict_package['Package2']:
-            itemTabela = dict_package['Package2'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- Package 2 Fronteira
-    elif tipoTabela.lower() == 'package 2 fronteira':
-        if origem in dict_package['Package2Front']:
-            itemTabela = dict_package['Package2Front'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- .COM 2
-    elif tipoTabela.lower() == '.com 2':
-        if origem in dict_package['.Com2']:
-            itemTabela = dict_package['.Com2'][origem]
-            cod.append(itemTabela)
-        elif origem == 'Multi':
-            listaCom2 = dict_package['.Com2'].values()
-            listaCom2 = list(listaCom2)
-            for item in listaCom2:
-                cod.append(item)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- .COM 2 Fronteira
-    elif tipoTabela.lower() == '.com 2 fronteira':
-        if origem in dict_package['.Com2Front']:
-            itemTabela = dict_package['.Com2Front'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- Package 4
-    elif tipoTabela.lower() == 'package 4':
-        if origem in dict_package['Package4']:
-            itemTabela = dict_package['Package4'][origem]
-            cod.append(itemTabela)
-        elif origem == 'Multi':
-            listaPackage4 = dict_package['Package4'].values()
-            listaPackage4 = list(listaPackage4)
-            for item in all_package4:
-                cod.append(item)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- Package 4 Fronteira
-    elif tipoTabela.lower() == 'package 4 fronteira':
-        if origem in dict_package['Package4Front']:
-            itemTabela = dict_package['Package4Front'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
-    #Adicionando o código selecionado -- .COM 2
-    elif tipoTabela.lower() == 'pickup':
-        if origem in dict_package['Pickup']:
-            itemTabela = dict_package['Pickup'][origem]
-            cod.append(itemTabela)
-        else:
-            print("Erro na procura do código, informar o criador.")
+    #Procura da tabela por tipo
+    df_codigos = df_codigos_vinculos[df_codigos_vinculos['Modalidade'] == tipoTabela]
+
+    #Filtrando por tipo para que possa buscar a origem
+    df_origem = df_codigos[df_codigos['IATA'] == origem]
+
+    #Adicionando os códigos selecionados na lista
+    for item in df_origem.index:
+        cod_temp.append(df_origem['Cod_Tabela'][item])
+    
+    for i in cod_temp:
+        cod.append(str(i))
+
+    # def escolhas():
+    #     #Adicionando o código selecionado -- Package Balcão
+    #     if tipoTabela.lower() == 'package balcão':
+    #         if origem in dict_package['PackageBalcao']:
+    #             itemTabela = dict_package['PackageBalcao'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- Package 1
+    #     if tipoTabela.lower() == 'package 1':
+    #         if origem in dict_package['Package1']:
+    #             itemTabela = dict_package['Package1'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- .COM 1 
+    #     elif tipoTabela.lower() == '.com 1':
+    #         if origem in dict_package['.Com1']:
+    #             itemTabela = dict_package['.Com1'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- Package 1,5 
+    #     elif tipoTabela.lower() == 'package 1.5':
+    #         if origem in dict_package['Package1.5']:
+    #             itemTabela = dict_package['Package1.5'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- .COM 1,5
+    #     elif tipoTabela.lower() == '.com 1.5':
+    #         if origem in dict_package['.Com1.5']:
+    #             itemTabela = dict_package['.Com1.5'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- Package 2 
+    #     elif tipoTabela.lower() == 'package 2':
+    #         if origem in dict_package['Package2']:
+    #             itemTabela = dict_package['Package2'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- Package 2 Fronteira
+    #     elif tipoTabela.lower() == 'package 2 fronteira':
+    #         if origem in dict_package['Package2Front']:
+    #             itemTabela = dict_package['Package2Front'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- .COM 2
+    #     elif tipoTabela.lower() == '.com 2':
+    #         if origem in dict_package['.Com2']:
+    #             itemTabela = dict_package['.Com2'][origem]
+    #             cod.append(itemTabela)
+    #         elif origem == 'Multi':
+    #             listaCom2 = dict_package['.Com2'].values()
+    #             listaCom2 = list(listaCom2)
+    #             for item in listaCom2:
+    #                 cod.append(item)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- .COM 2 Fronteira
+    #     elif tipoTabela.lower() == '.com 2 fronteira':
+    #         if origem in dict_package['.Com2Front']:
+    #             itemTabela = dict_package['.Com2Front'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- Package 4
+    #     elif tipoTabela.lower() == 'package 4':
+    #         if origem in dict_package['Package4']:
+    #             itemTabela = dict_package['Package4'][origem]
+    #             cod.append(itemTabela)
+    #         elif origem == 'Multi':
+    #             listaPackage4 = dict_package['Package4'].values()
+    #             listaPackage4 = list(listaPackage4)
+    #             for item in all_package4:
+    #                 cod.append(item)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- Package 4 Fronteira
+    #     elif tipoTabela.lower() == 'package 4 fronteira':
+    #         if origem in dict_package['Package4Front']:
+    #             itemTabela = dict_package['Package4Front'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
+    #     #Adicionando o código selecionado -- .COM 2
+    #     elif tipoTabela.lower() == 'pickup':
+    #         if origem in dict_package['Pickup']:
+    #             itemTabela = dict_package['Pickup'][origem]
+    #             cod.append(itemTabela)
+    #         else:
+    #             print("Erro na procura do código, informar o criador.")
 
     main()
     # clear_console()

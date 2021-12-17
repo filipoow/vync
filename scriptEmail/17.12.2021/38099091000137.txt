@@ -1,0 +1,15 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 2       
+------------------------------------------------
+
+Erik, boa tarde!
+
+Conforme solicitado foi cadastrada no CNPJ 38099091000137 a tabela:
+PACKAGE 4 + 1.5
+Origem GYN
+
+Por gentileza solicitar testes.
+
+A taxa foi cadastrada no sistema devendo ser inserida manualmente na emissão.

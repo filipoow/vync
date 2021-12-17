@@ -1,0 +1,13 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 2       
+------------------------------------------------
+
+Erik, boa tarde!
+
+Conforme solicitado foi cadastrada no CNPJ 31156773000195 a tabela:
+PACKAGE 4
+Origem SSA
+
+Por gentileza solicitar testes.
