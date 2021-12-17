@@ -321,11 +321,12 @@ for i in base.index:
     print("------------------------------------------------")
     print("            ==Operações Realizadas==            ")
     print(f"               -- Identificador: {i}           ")
+    print(f"               -- CNPJ: {cnpj}                 ")
     print("               -- Tabela cadastrada com sucesso!")
     if seTaxa.lower() == 'sim':
         addTaxa()
         taxa = float(taxa)
-        print("               -- Taxa adicionada com sucesso!")
+        print(f"               -- Taxa de R$:{taxa} adicionada com sucesso!")
     elif seTaxa.lower() == 'não':
         taxa = 0
         print("               -- Taxa não adicionada!")
