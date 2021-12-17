@@ -302,17 +302,21 @@ for i in base.index:
 
     #Procura da tabela por tipo
     df_codigos = df_codigos_vinculos[df_codigos_vinculos['Modalidade'] == tipoTabela]
+    if origem == 'Multi':
+        for i in df_codigos.index:
+            cod_temp.append(df_codigos['Cod_Tabela'][i])
+    else:
+        #Filtrando por tipo para que possa buscar a origem
+        df_origem = df_codigos[df_codigos['IATA'] == origem]
 
-    #Filtrando por tipo para que possa buscar a origem
-    df_origem = df_codigos[df_codigos['IATA'] == origem]
+        #Adicionando os códigos selecionados na lista
+        for item in df_origem.index:
+            cod_temp.append(df_origem['Cod_Tabela'][item])
 
-    #Adicionando os códigos selecionados na lista
-    for item in df_origem.index:
-        cod_temp.append(df_origem['Cod_Tabela'][item])
-    
     for i in cod_temp:
         cod.append(str(i))
 
+    
     # def escolhas():
     #     #Adicionando o código selecionado -- Package Balcão
     #     if tipoTabela.lower() == 'package balcão':
