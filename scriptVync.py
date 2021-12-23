@@ -4,10 +4,6 @@ import pyautogui
 import time
 import os
 
-#Importação Tabelas
-from config import dict_package
-from config import all_package4
-
 #Importação codigos
 df_codigos_vinculos = pd.read_excel('base_de_dados\codigo_ref.xlsx',dtype=object)
 
