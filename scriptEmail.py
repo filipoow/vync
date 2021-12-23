@@ -1,10 +1,13 @@
 import pandas as pd
 import time
 
+#Importação da base de dados
 df_base = pd.read_excel('base.xlsx',dtype=object)
 
+#Criando uma listagem dos vendedores
 lista_vendedores = list(set(df_base['nomeVendedor'].values.tolist()))
 
+#Novo df
 base_temporaria = pd.DataFrame()
 
 def scriptEmail():
