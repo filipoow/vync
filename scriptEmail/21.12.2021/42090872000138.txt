@@ -1,0 +1,20 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 2       
+------------------------------------------------
+
+Naiara, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 42090872000138 as tabelas:
+PACKAGE 4 + 2.95
+.COM 2 + 2.95
+PICKUP + 1
+CORPORATE + 2.95
+CARGO + 2.95
+DOC + 2.95
+Origem nan
+
+Por gentileza solicitar testes.
+
+As taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.

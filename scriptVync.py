@@ -296,7 +296,16 @@ for i in base.index:
     tipoTaxa = str(base['tipoTaxa'][i])
     taxa = str(base['taxa'][i])
     
-    #Se for colocar os códigos manualmente, adicionar antes de compilar..
+    #Manual(Obs: para usar comentar a declaração acima e após preencher descomentar o mesmo.)
+    # nomeVendedor = 'Preencher'
+    # cnpj = 'Preencher'
+    # tipoTabela = 'Preencher'
+    # origem = 'Preencher'
+    # seTaxa = 'Preencher'
+    # tipoTaxa = 'Preencher'
+    # taxa = 'Preencher'
+
+    #Listagem dos códigos
     cod = []
     cod_temp = []
 
@@ -313,9 +322,11 @@ for i in base.index:
         for item in df_origem.index:
             cod_temp.append(df_origem['Cod_Tabela'][item])
 
+    #Transformando a listagem do código temporário em string
     for i in cod_temp:
         cod.append(str(i))
 
+    #Chamando a função principal
     main()
     # clear_console()
     print("------------------------------------------------")
@@ -323,7 +334,9 @@ for i in base.index:
     print(f"               -- Identificador: {i}           ")
     print(f"               -- CNPJ: {cnpj}                 ")
     print("               -- Tabela cadastrada com sucesso!")
+    #Condicionáis para taxa de tabela
     if seTaxa.lower() == 'sim':
+        #Chamando a função addTaxa
         addTaxa()
         taxa = float(taxa)
         print(f"               -- Taxa de R$:{taxa} adicionada com sucesso!")
@@ -332,4 +345,5 @@ for i in base.index:
         print("               -- Taxa não adicionada!")
     else:
         print("Erro ao efetuar a ação, entrar em contato com o criador.")
+#Report de conclusão das operações
 fim()

@@ -1,0 +1,14 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 3       
+------------------------------------------------
+
+Erik, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 2175591000163 as tabela:
+PACKAGE 2
+.COM 2
+Origem RIO
+
+Por gentileza solicitar testes.

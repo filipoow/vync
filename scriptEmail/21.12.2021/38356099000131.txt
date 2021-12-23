@@ -1,0 +1,15 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 3       
+------------------------------------------------
+
+Michele, boa tarde!
+
+Conforme solicitado foi cadastrada no CNPJ 38356099000131 a tabela:
+PACKAGE 4 + 1
+Origem SAO
+
+Por gentileza solicitar testes.
+
+A taxa foi cadastrada no sistema devendo ser inserida manualmente na emissão.

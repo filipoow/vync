@@ -1,0 +1,15 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 2       
+------------------------------------------------
+
+Naiara, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 38200020000189 as tabela:
+PACKAGE 2
+.COM 2
+PICKUP Menor100
+Origem SAO
+
+Por gentileza solicitar testes.

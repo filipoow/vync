@@ -1,0 +1,14 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 3       
+------------------------------------------------
+
+Erik, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 33646642000111 as tabela:
+PACKAGE 2 FRONTEIRA
+.COM 2 FRONTEIRA
+Origem SAO
+
+Por gentileza solicitar testes.
