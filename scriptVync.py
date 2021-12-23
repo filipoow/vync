@@ -306,13 +306,13 @@ for i in base.index:
     cod_temp = []
 
     #Procura da tabela por tipo
-    df_codigos = df_codigos_vinculos[df_codigos_vinculos['Modalidade'] == tipoTabela]
+    df_codigos = df_codigos_vinculos[df_codigos_vinculos['Modalidade'] == tipoTabela.upper()]
     if origem == 'Multi':
         for i in df_codigos.index:
             cod_temp.append(df_codigos['Cod_Tabela'][i])
     else:
         #Filtrando por tipo para que possa buscar a origem
-        df_origem = df_codigos[df_codigos['IATA'] == origem]
+        df_origem = df_codigos[df_codigos['IATA'] == origem.upper()]
 
         #Adicionando os códigos selecionados na lista
         for item in df_origem.index:
