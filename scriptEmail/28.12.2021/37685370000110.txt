@@ -1,0 +1,17 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 1       
+------------------------------------------------
+
+Naiara, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 37685370000110 as tabelas:
+PACKAGE 4 + 0.75
+.COM 1.5 + 0.75
+ECONOMICO + 10
+Origem SAO
+
+Por gentileza solicitar testes.
+
+As taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.
