@@ -293,13 +293,13 @@ for i in base.index:
     taxa = str(base['taxa'][i])
     
     #Manual(Obs: para usar comentar a declaração acima e após preencher descomentar o mesmo.)
-    # nomeVendedor = 'Preencher'
+    # nomeVendedor = str(base['nomeVendedor'][i])
     # cnpj = 'Preencher'
-    # tipoTabela = 'Preencher'
-    # origem = 'Preencher'
-    # seTaxa = 'Preencher'
-    # tipoTaxa = 'Preencher'
-    # taxa = 'Preencher'
+    # tipoTabela = str(base['tipoTabela'][i])
+    # origem = str(base['Origem'][i])
+    # seTaxa = str(base['seTaxa'][i])
+    # tipoTaxa = str(base['tipoTaxa'][i])
+    # taxa = str(base['taxa'][i])
 
     #Listagem dos códigos
     cod = []
