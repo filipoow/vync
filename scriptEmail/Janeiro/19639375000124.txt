@@ -1,0 +1,16 @@
+
+------------------------------------------------
+          ==Gerando Script de E-mail==          
+         -- Número: 1       
+------------------------------------------------
+
+Danielle, boa tarde!
+
+Conforme solicitado foram cadastradas no CNPJ 19639375000124 as tabelas:
+PACKAGE 1.5 + 4.5
+.COM 1.5 + 4.5
+Origem SAO
+
+Por gentileza solicitar testes.
+
+As taxas foram cadastradas no sistema devendo ser inserida manualmente na emissão.
